@@ -1,0 +1,487 @@
+// checkbox
+input,
+textarea {
+    transition: all 0.3s ease-out;
+}
+
+input + label,
+label + input {
+    margin-left: 0.6rem;
+}
+
+label.hide {
+    font-size: 0;
+    width: 0 !important;
+    text-indent: -9999px;
+    opacity: 0;
+
+    & + input,
+    input + & {
+        margin-left: 0 !important;
+    }
+}
+
+*:focus-visible {
+    // outline: none;
+    outline: 2px solid var(--primary-color);
+}
+
+input[type="checkbox"] {
+    // display: none;
+    width: 1.8rem;
+    height: 1.8rem;
+    position: relative;
+    appearance: none;
+    vertical-align: middle;
+
+    & ~ label {
+        vertical-align: middle;
+        line-height: 1;
+        display: inline-block;
+        margin: 0.3rem 0 0 0.6rem;
+    }
+
+    &:hover::before {
+        border-color: var(--primary-color);
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        transition: all 0.3s ease-out;
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 1.4rem;
+        font-weight: 400;
+        border: 1px solid var(--icon-color);
+        background-color: var(--bg-color);
+        width: 1.6rem;
+        height: 1.6rem;
+        z-index: 9;
+        border-radius: 0.2rem;
+    }
+
+    &:checked::before {
+        content: "\f00c";
+        font-family: var(--icon-font);
+        font-size: 1.2rem;
+        text-align: center;
+        line-height: 1.8rem;
+        font-weight: 400;
+        border-color: var(--bg-color);
+        color: #fff;
+        background-color: var(--primary-color);
+    }
+
+    &.check-s {
+        width: 1.4rem;
+        height: 1.4rem;
+        &:before {
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+
+        &:checked::before {
+            font-size: 1rem;
+            line-height: 1.4rem;
+        }
+
+        & + label {
+            font-size: 1.3rem;
+            margin: -0.1rem 0 0 0.2rem;
+            width: calc(100% - 2rem);
+        }
+    }
+}
+
+// radio
+input[type="radio"] {
+    width: 1.8rem;
+    height: 1.8rem;
+    position: relative;
+    appearance: none;
+    vertical-align: middle;
+
+    & ~ label {
+        vertical-align: middle;
+        line-height: 1;
+        display: inline-block;
+        margin: 0.4rem 0 0 0.6rem;
+    }
+
+    &:hover::before {
+        border-color: var(--primary-color);
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        vertical-align: middle;
+        border: 1px solid var(--icon-color);
+        background-color: var(--bg-color);
+        width: 1.6rem;
+        transition: all 0.3s ease-out;
+        height: 1.6rem;
+        z-index: 9;
+        border-radius: 50%;
+    }
+
+    &:checked::before {
+        border-color: var(--primary-color);
+    }
+
+    &:checked::after {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        vertical-align: middle;
+        border: none;
+        background-color: var(--primary-color);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 1rem;
+        height: 1rem;
+        z-index: 9;
+        border-radius: 50%;
+    }
+}
+
+// select box
+select {
+    appearance: none;
+
+    height: 4.2rem;
+    padding: 0 3.2rem 0 1.4rem;
+    border-color: var(--border-color2);
+    line-height: 1.8rem;
+    border-radius: 0.4rem;
+    position: relative;
+    background: url(../img/common/caret-down.svg) no-repeat calc(100% - 1.4rem)
+        center;
+
+    &:focus {
+        outline: 1px solid var(--border-color3);
+    }
+
+    &.select-s {
+        height: 2.6rem;
+        padding: 0.4rem 3rem 0.4rem 0.8rem;
+        font-size: 1.3rem;
+        background-position: calc(100% - 0.4rem) center;
+    }
+}
+
+// input text
+input[type="text"],
+input[type="date"] {
+    all: unset;
+    box-sizing: border-box;
+    // height: 4.2rem;
+    padding: 1.2rem 1.4rem 0.9rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.4rem;
+    line-height: 1;
+    vertical-align: middle;
+    transition: outline 0.4s ease-out;
+
+    &:focus {
+        outline: 1px solid var(--border-color3);
+    }
+
+    &::placeholder {
+        color: var(--font-color3);
+        font-size: 1.4rem;
+    }
+
+    &.input-full {
+        width: 100%;
+    }
+    &.input-s {
+        width: 9rem;
+    }
+}
+
+input[type="date"] {
+    width: 9rem;
+    // &.btn {
+    //     height: 4.2rem;
+    //     min-width: 4.2rem;
+    //     border: 1px solid var(--border-color2);
+    //     outline: none;
+    //     transition: background-color 0.4s ease-out;
+
+    //     ::after{
+    //         content: "\f073";
+    //         font-family: var(--icon-font);
+    //         font-size: 1.6rem;
+    //     }
+}
+
+// required label
+label.required::before,
+.title.required::before {
+    content: "*";
+    color: var(--accent-red);
+}
+
+.form-top-info {
+    margin-left: 4rem;
+    color: var(--accent-red);
+    font-size: 1.3rem;
+}
+
+.form-info {
+    font-size: 1.3rem;
+    line-height: 1;
+    margin-top: 0.6rem;
+    color: var(--font-color3);
+
+    > .link {
+        text-decoration: underline;
+    }
+
+    &.error {
+        &::before {
+            padding-left: 1.4rem;
+            content: "! ";
+        }
+        color: var(--accent-red);
+    }
+}
+
+// button
+.btn {
+    padding: 1rem 2rem 0.8rem;
+    line-height: 158%;
+    height: 4.2rem;
+    min-width: 4.2rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    transition: background-color 0.4s ease-out;
+    vertical-align: middle;
+
+    &:hover {
+        background-color: #513fc6;
+    }
+
+    > .icon {
+        font-size: 1.2rem;
+        vertical-align: middle;
+    }
+
+    &-round {
+        border-radius: 2.4rem;
+    }
+
+    &-full {
+        width: 100%;
+    }
+
+    &-text {
+        border: none;
+
+        &:hover {
+            background-color: transparent;
+        }
+    }
+
+    &-align-l {
+        text-align: left;
+    }
+
+    &-icon {
+        font-size: 0 !important;
+
+        &.type2 {
+            border: none;
+            font-size: 0;
+            color: var(--font-color3);
+            &:hover,
+            &:active {
+                background-color: transparent;
+                color: var(--primary-color);
+            }
+        }
+
+        > .icon {
+            font-size: 1.6rem;
+            margin-top: -0.2rem;
+        }
+    }
+
+    &-s {
+        font-size: 1.2rem;
+        padding: 1.2rem 1rem 0.8rem;
+        border-radius: 0.4rem;
+    }
+
+    &-black {
+        background-color: var(--btn-black);
+
+        &:hover {
+            background-color: var(--primary-color);
+        }
+    }
+
+    &-gray {
+        background-color: var(--btn-gray);
+        color: var(--font-color);
+
+        &:hover {
+            background-color: #f3f3f3;
+        }
+    }
+
+    &-white {
+        color: var(--font-color3);
+        background-color: var(--bg-color);
+        border: 1px solid var(--border-color2);
+
+        &:hover {
+            background-color: #f1f1f1;
+        }
+    }
+
+    // 이전/다음버튼
+    &-move {
+        font-size: 0;
+        border: none;
+        display: inline-block;
+        line-height: 4rem;
+
+        &.text {
+            font-size: 1.6rem;
+            color: var(--font-color3);
+        }
+
+        &.prev:hover,
+        &.next:hover {
+            background: none;
+
+            &::before,
+            &::after {
+                border-color: var(--font-color);
+                color: var(--font-color);
+            }
+        }
+
+        &.prev.text::before {
+            margin-right: 0.4rem;
+        }
+
+        &.next.text::after {
+            margin-left: 0.4rem;
+        }
+
+        &.prev::before {
+            content: "\f104";
+            font-family: var(--icon-font);
+            font-size: 1.6rem;
+            line-height: 2.4rem;
+            display: inline-block;
+            transition: all 0.4s ease-out;
+            width: 2.4rem;
+            height: 2.4rem;
+            border-radius: 50%;
+            border: 2px solid var(--font-color3);
+            color: var(--font-color3);
+            text-align: center;
+        }
+
+        &.next::after {
+            content: "\f105";
+            font-family: var(--icon-font);
+            font-size: 1.6rem;
+            line-height: 2.4rem;
+            display: inline-block;
+            transition: all 0.4s ease-out;
+            text-align: center;
+            width: 2.4rem;
+            height: 2.4rem;
+            border-radius: 50%;
+            border: 2px solid var(--font-color3);
+            color: var(--font-color3);
+        }
+    }
+}
+
+// textarea
+textarea {
+    resize: none;
+    width: 100%;
+    border-color: var(--border-color);
+    border-radius: 0.4rem;
+    padding: 1.1rem 1.4rem;
+    font-size: 1.4rem;
+    color: var(--font-color);
+    min-height: 12rem;
+
+    &::placeholder {
+        color: var(--font-color3);
+    }
+}
+
+// [활용예시 1] 새로운 설문 작성하기 페이지
+.title-write-wrap {
+    // margin-top: -1.4rem;
+
+    > .row {
+        display: flex;
+        // align-items: center;
+        justify-content: space-between;
+        min-height: 4.2rem;
+        margin-top: 1.4rem;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    .title {
+        width: 11rem;
+        font-weight: 400;
+        text-align: right;
+        height: 4.2rem;
+        line-height: 4.2rem;
+        font-size: 1.4rem;
+        margin-top: 0.2rem;
+    }
+
+    .write-cont {
+        width: calc(100% - 11rem - 1.5rem);
+        line-height: 4.2rem;
+
+        > * {
+            margin-left: 0.4rem;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+
+        .tilde-txt {
+            color: var(--font-color3);
+            padding: 0 0.8rem;
+            display: inline-block;
+            margin: 0 !important;
+            font-size: 1.4rem;
+        }
+
+        .row-txt {
+            font-size: 1.4rem;
+            line-height: 4.2rem;
+            display: inline-block;
+            margin-left: 0.4rem;
+        }
+
+        input ~ label {
+            margin-right: 1.8rem;
+
+            &.hide {
+                margin-right: 0;
+            }
+        }
+    }
+}

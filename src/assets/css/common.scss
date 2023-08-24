@@ -1,0 +1,242 @@
+@font-face {
+    font-family: "AppleSDGothicNeo";
+    font-weight: 100;
+    src: url(@/assets/fonts/AppleSDGothicNeoT.woff2) format("woff2");
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeo";
+    font-weight: 200;
+    src: url(@/assets/fonts/AppleSDGothicNeoUL.woff2) format("woff2");
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeo";
+    font-weight: 300;
+    src: url(@/assets/fonts/AppleSDGothicNeoL.woff2) format("woff2");
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeo";
+    font-weight: 400;
+    src: url(@/assets/fonts/AppleSDGothicNeoR.woff2) format("woff2");
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeo";
+    font-weight: 500;
+    src: url(@/assets/fonts/AppleSDGothicNeoM.woff2) format("woff2");
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeo";
+    font-weight: 600;
+    src: url(@/assets/fonts/AppleSDGothicNeoSB.woff2) format("woff2");
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeo";
+    font-weight: 700;
+    src: url(@/assets/fonts/AppleSDGothicNeoB.woff2) format("woff2");
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeo";
+    font-weight: 800;
+    src: url(@/assets/fonts/AppleSDGothicNeoEB.woff2) format("woff2");
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeo";
+    font-weight: 900;
+    src: url(@/assets/fonts/AppleSDGothicNeoH.woff2) format("woff2");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "AppleSDGothicNeo";
+    letter-spacing: -0.05rem;
+}
+
+:root {
+    --primary-color: #6c5dd3; /* 메인 컬러 */
+    --accent-red: #ff754c;
+
+    --border-color: #eeeeee;
+    --border-color2: #e3e6ec;
+    --border-color3: #b2b3bd;
+    --border-color4: #E4E4E4;
+
+    --font-color: #1b1d21;
+    --font-color2: #fff;
+    --font-color3: #808191;
+    --font-color-link: #5f75ee;
+
+    --icon-color: #b0b0b2;
+
+    --bg-color: #fff;
+    --bg-color2: #F8F7F7;
+
+    --btn-black: #1b1d21;
+    --btn-gray: #fafafa;
+
+    --icon-font: "FontAwesome";
+
+    --shadow-1: 0px 6px 12px 0px #0000000f;
+}
+
+html {
+    font-size: 62.5%;
+    letter-spacing: -0.01em;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 1.6rem;
+    color: var(--font-color);
+    min-width: 1440px;
+}
+
+#app {
+    overflow-x: hidden;
+}
+
+#content {
+    min-width: 1440px;
+    padding-top: 6.6rem;
+    min-height: 100vh;
+    position: relative;
+}
+
+// .left-menu ~ .container{
+//     display: inline-block;
+//     vertical-align: top;
+//     width: calc(100% - 30rem);
+// }
+
+.container {
+    max-width: 1440px;
+    padding: 6rem 1rem 0;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 10rem;
+
+    &-type2 {
+        max-width: 1200px;
+    }
+}
+
+button,
+.btn {
+    display: inline-block;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    padding: 0.4rem;
+    border-radius: 0.6rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--font-color);
+    text-align: center;
+
+    &:hover {
+        background-color: #eee;
+    }
+}
+
+a {
+    color: var(--font-color);
+    text-decoration: none;
+}
+
+i,
+em {
+    font-style: normal;
+}
+
+hr {
+    border: 0;
+    padding: 5px 0;
+}
+
+li,
+ol {
+    list-style: none;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 3.2rem;
+    font-weight: 400;
+    line-height: 140%;
+    margin-bottom: 7.2rem;
+}
+
+//튜툴팁
+.tooltip {
+    position: relative;
+    &.fa-circle-info {
+        color: var(--font-color3);
+        font-size: 1.3rem;
+    }
+
+    &-desc {
+        opacity: 0%;
+        transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        position: absolute;
+        width: max-content;
+        bottom: -2.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--bg-color);
+        background-color: var(--font-color);
+        font-size: 1.3rem;
+        font-weight: 400;
+        line-height: 1.36;
+        padding: 0.3rem 0.6rem 0.1rem;
+        border-radius: 0.4rem;
+        z-index: 99;
+
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-bottom: 0.6rem solid var(--font-color);
+            border-left: 1rem solid transparent;
+            border-right: 1rem solid transparent;
+            border-top: 1rem solid transparent;
+            top: -1.6rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -9;
+        }
+    }
+
+    &:hover > &-desc {
+        opacity: 100%;
+    }
+}
+
+// 말줄임
+.text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &-line2 {
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+
+// 스크롤
+.y-scroll {
+    overflow-y: auto;
+    height: 100%;
+}

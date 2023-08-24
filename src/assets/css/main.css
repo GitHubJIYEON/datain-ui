@@ -1,0 +1,6 @@
+@import './vendor/normalize.css'; /* 크로스 브라우징 및 초기화를 위한 css */
+@import './vendor/fontawesome.min.css'; /* font awesome 6.4.2 */
+@import './common.scss'; /* 모든 페이지 공통으로 적용되는 css */
+@import './form.scss'; /* form 내용 css */
+
+
