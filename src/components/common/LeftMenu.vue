@@ -1,7 +1,7 @@
 <template>
-    <aside class="left-menu open">
+    <aside class="left-menu" :class="{ open: isActive }">
         <div class="y-scroll">
-            <button type="button" class="btn-menu-fold">열고접기</button>
+            <button type="button" class="btn-menu-fold" @click="leftsideToggle">열고접기</button>
             <button type="button" class="btn btn-gray btn-full btn-align-l">
                 <i class="icon">👋🏻 </i>신규 설문 등록
             </button>
@@ -191,7 +191,15 @@
         </div>
     </aside>
 </template>
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+
+const isActive = ref(true)
+
+const leftsideToggle = () => {
+    isActive.value = !isActive.value    
+}
+</script>
 <style lang="scss" scoped>
 .left-menu {
     display: inline-block;
